@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Drift Racer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <canvas id="gameCanvas"></canvas>
+
+  <div id="startScreen" class="overlay show">
+    <div class="panel">
+      <h1 class="title">DRIFT RACER</h1>
+      <p class="subtitle">Race. Drift. Boost. Win.</p>
+      <div class="btn-row">
+        <button id="startBtn" class="btn-primary">START RACE</button>
+        <button id="creditsBtn" class="btn-secondary">CREDITS</button>
+      </div>
+      <div class="controls-help">
+        <h3>CONTROLS</h3>
+        <ul>
+          <li><span class="key">&#8593;</span> Accelerate</li>
+          <li><span class="key">&#8595;</span> Brake / Reverse</li>
+          <li><span class="key">&#8592;</span> <span class="key">&#8594;</span> Steer</li>
+          <li><span class="key">SPACE</span> Drift / Handbrake</li>
+          <li><span class="key">P</span> Pause / Resume</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="creditsScreen" class="overlay">
+    <div class="panel">
+      <h2 class="title small">CREDITS</h2>
+      <p class="subtitle">Made by the team</p>
+      <ul id="creditsList" class="credits-list"></ul>
+      <button id="creditsBackBtn" class="btn-primary">BACK</button>
+    </div>
+  </div>
+
+  <div id="pauseOverlay" class="overlay">
+    <div class="panel">
+      <h2 class="title small">PAUSED</h2>
+      <p class="subtitle">Press P to resume</p>
+    </div>
+  </div>
+
+  <div id="finishScreen" class="overlay">
+    <div class="panel">
+      <h2 id="finishTitle" class="title small">RACE FINISHED</h2>
+      <p id="finishPosition" class="finish-stat">Position: 1/6</p>
+      <p id="finishScore" class="finish-stat">Score: 0</p>
+      <p id="finishDrift" class="finish-stat">Drift Distance: 0 m</p>
+      <button id="restartBtn" class="btn-primary">RACE AGAIN</button>
+    </div>
+  </div>
+
+  <div id="hud" class="hud">
+    <div class="hud-top-left">
+      <div class="hud-row">
+        <div class="hud-chip"><span class="hud-label">POS</span><span id="hudPosition">1/6</span></div>
+        <div class="hud-chip"><span class="hud-label">LAP</span><span id="hudLap">LAP 1/3</span></div>
+      </div>
+      <div class="hud-chip small-chip"><span class="hud-label">DRIFT DIST</span><span id="hudDriftDistance">0 m</span></div>
+      <div class="drift-meter">
+        <div class="drift-meter-label">
+          <span id="hudDriftCharge">READY</span>
+        </div>
+        <div class="drift-bar-track">
+          <div id="driftBar" class="drift-bar-fill"></div>
+        </div>
+      </div>
+    </div>
+    <div class="hud-top-right">
+      <div class="hud-row">
+        <div class="hud-chip"><span class="hud-label">SPEED</span><span id="hudSpeed">0 KM/H</span></div>
+        <div class="hud-chip"><span class="hud-label">SCORE</span><span id="hudScore">0</span></div>
+      </div>
+    </div>
+    <div id="turboMsg" class="turbo-msg">MINI TURBO!</div>
+  </div>
+
+  <div id="mobileControls" class="mobile-controls">
+    <div class="mc-left">
+      <button id="btnLeft" class="mc-btn">&#8592;</button>
+      <button id="btnRight" class="mc-btn">&#8594;</button>
+    </div>
+    <div class="mc-right">
+      <button id="btnDrift" class="mc-btn mc-drift">DRIFT</button>
+      <div class="mc-pedals">
+        <button id="btnBrake" class="mc-btn mc-pedal">BRAKE</button>
+        <button id="btnGas" class="mc-btn mc-pedal mc-gas">GAS</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
